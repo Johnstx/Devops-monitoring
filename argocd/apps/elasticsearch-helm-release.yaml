@@ -10,7 +10,7 @@ spec:
     name: kind-monitoring
   project: default
   source:
-  - chart: elasticsearch
+    chart: elasticsearch
     repoURL: https://helm.elastic.co
     targetRevision: 7.17.3
     helm:
