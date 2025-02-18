@@ -10,8 +10,8 @@ spec:
     path: 'argocd/apps/Elasticsearch-app'
     targetRevision: HEAD
   destination:
-    server: "https://127.0.0.1:44717"
-    name: kind-elk
+    server: "https://127.0.0.1:45671"
+    # name: kind-elk
     namespace: elastic-app
   syncPolicy:
     automated:
