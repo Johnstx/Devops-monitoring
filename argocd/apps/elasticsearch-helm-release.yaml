@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: elasticsearch
+  namespace: argocd
+spec:
+  destination:
+    namespace: elastic-app
+    server: https://kubernetes.default.svc
+    name: kind-monitoring
+  project: default
+  source:
+  - chart: elasticsearch
+    repoURL: https://helm.elastic.co
+    targetRevision: 7.17.3
+    helm:
+      valueFiles: 
+      - $values/argocd/helm/values/elasticsearch-values.yaml
+  - repoURL: git@github.com:Johnstx/devops-monitoring.git
+    targetRevision: main
+    ref: values  
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
+      - Validate=true
+      - ServerSideApply=true
