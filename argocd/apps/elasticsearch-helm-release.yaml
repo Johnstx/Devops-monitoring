@@ -4,10 +4,6 @@ metadata:
   name: elasticsearch
   namespace: argocd
 spec:
-  destination:
-    namespace: elastic-app
-    server: https://kubernetes.default.svc
-    name: kind-monitoring
   project: default
   sources:
   - repoURL: https://helm.elastic.co
@@ -16,7 +12,7 @@ spec:
     helm:
       valueFiles: 
        - $values/argocd/helm/values/elasticsearch-values.yaml
-  - repoURL: git@github.com:Johnstx/devops-monitoring.git
+  - repoURL: 'git@github.com:Johnstx/devops-monitoring.git'
     targetRevision: main
     ref: values  
   syncPolicy:
@@ -27,3 +23,7 @@ spec:
       - CreateNamespace=true
       - Validate=true
       - ServerSideApply=true
+  destination:
+    namespace: elastic-app
+    server: "https://kubernetes.default.svc"
+    # name: kind-monitoring
