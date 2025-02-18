@@ -11,7 +11,7 @@ spec:
     targetRevision: HEAD
   destination:
     server: "https://kubernetes.default.svc"
-    name: kind-monitoring
+    # name: kind-monitoring
     namespace: elastic-app
   syncPolicy:
     automated:
