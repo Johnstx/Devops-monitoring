@@ -9,13 +9,13 @@ spec:
     server: https://kubernetes.default.svc
     name: kind-monitoring
   project: default
-  source:
+  sources:
+  - repoURL: https://helm.elastic.co
     chart: elasticsearch
-    repoURL: https://helm.elastic.co
     targetRevision: 7.17.3
     helm:
       valueFiles: 
-      - $values/argocd/helm/values/elasticsearch-values.yaml
+       - $values/argocd/helm/values/elasticsearch-values.yaml
   - repoURL: git@github.com:Johnstx/devops-monitoring.git
     targetRevision: main
     ref: values  
