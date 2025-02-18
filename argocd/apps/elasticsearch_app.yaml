@@ -10,7 +10,7 @@ spec:
     path: 'argocd/apps/Elasticsearch-app'
     targetRevision: HEAD
   destination:
-    # server: "https://127.0.0.1:45671"
+    server: "https://kubernetes.default.svc"
     name: kind-monitoring
     namespace: elastic-app
   syncPolicy:
